@@ -1,0 +1,129 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 250px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  position: relative;
+}
+
+.top-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  max-width: 80%;
+  width: 100%;
+  border-bottom: solid rgb(61, 81, 75) 5px;
+  .avatar-container {
+    margin-bottom: 5px;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  .row {
+    color: #333;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    text-overflow: ellipsis;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .col {
+    color: #333;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-overflow: ellipsis;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+}
+
+.name {
+  font-size: 2.5em;
+  margin: 0;
+  color: #1b6536;
+}
+
+.job-title {
+  font-size: 1.3em;
+  color: #6ca782;
+  margin: 4px 0;
+  text-wrap: pretty;
+  max-height: 15px;
+  text-overflow: ellipsis;
+  font-style: italic;
+}
+
+.company {
+  color: #0b021f;
+  font-size: 1.3em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.email,
+.contact {
+  color: #0b021f;
+  font-size: 1.3em;
+  margin: 4px 0;
+}
+
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-btn img,
+.delete-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.edit-btn:hover img,
+.delete-btn:hover img {
+  filter: brightness(0.4);
+}
+
+.delete {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  button {
+    padding: 10px 15px;
+    background-color: #9e1010;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 15%;
+  }
+}
+.separator {
+  border: 0;
+  border-top: 2px solid #c7c3c3;
+  margin: 2px 0;
+}

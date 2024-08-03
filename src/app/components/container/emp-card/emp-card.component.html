@@ -1,0 +1,64 @@
+<div class="card">
+  <div class="top-content">
+    <div class="avatar-container">
+      <img [src]="info.avtr?.imgSrc" alt="Avatar" class="avatar" />
+    </div>
+
+    <div class="actions">
+      <button class="edit-btn" title="Edit" (click)="onAction(info, 'edit')">
+        <img
+          src="https://img.icons8.com/material-outlined/24/000000/edit.png"
+          alt="Edit"
+        />
+      </button>
+      <button
+        class="delete-btn"
+        title="Delete"
+        (click)="onAction(info, 'delete')"
+      >
+        <img
+          src="https://img.icons8.com/material-outlined/24/000000/trash.png"
+          alt="Delete"
+        />
+      </button>
+    </div>
+  </div>
+
+  <div class="info-container">
+    <div>
+      <h2 class="name">{{ info.name }}</h2>
+      <p class="job-title">{{ info.role }}</p>
+    </div>
+    <div class="separator"></div>
+    <div class="row">
+      <h3>Team:</h3>
+      <p class="company">{{ info.companyName }}</p>
+    </div>
+    <div class="separator"></div>
+    <div class="row">
+      <h3>Mail:</h3>
+      <p class="email">{{ info.email }}</p>
+    </div>
+    <div class="separator"></div>
+    <div class="row">
+      <h3>Contact No:</h3>
+      <p class="contact">{{ info.phone }}</p>
+    </div>
+  </div>
+</div>
+<div *ngIf="ds.modalID === info.id && (ds.enableModal | async)">
+  <app-modal [id]="info.id" [title]="'Edit Employee'">
+    <ng-container *ngIf="actionType === 'edit'; else deleteConfirmation"
+      ><app-employee-form
+        [isEditForm]="true"
+        [editEmpVal]="info"
+      ></app-employee-form>
+    </ng-container>
+    <ng-template #deleteConfirmation>
+      <div class="delete">
+        Are You Sure Want To Delete {{ info.name }}?.
+        <button (click)="onDeleteEmp(info)">Delete</button>
+      </div>
+    </ng-template>
+  </app-modal>
+</div>

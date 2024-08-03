@@ -1,0 +1,18 @@
+<header>
+    <div class="ham">
+        <button class="menu-toggle" [ngClass]="{'active': toggleMenu}"(click)="toggleMenu = !toggleMenu">
+            <span class="menu-icon"></span>
+            <span class="menu-icon"></span>
+            <span class="menu-icon"></span>
+        </button>
+        <nav class="nav-menu" [ngClass]="{'active': toggleMenu}">
+            <ul (click)="toggleMenu = !toggleMenu">
+                <li><a [routerLink]="'/'">Overview</a></li>
+                <li><a [routerLink]="'/addnewemp'">Add New Employee</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="logo">
+        <img src="infrr_logo.png" alt="Logo">
+    </div>
+</header>

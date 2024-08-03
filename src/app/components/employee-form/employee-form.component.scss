@@ -1,0 +1,37 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  small {
+    color: red;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #06a751;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #60796a;
+  }
+  

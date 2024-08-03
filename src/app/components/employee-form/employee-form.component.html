@@ -1,0 +1,107 @@
+<div class="container">
+  <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" type="text" autocomplete="off" />
+      <div *ngIf="empForm.get('name')?.invalid && empForm.get('name')?.touched">
+        <small *ngIf="empForm.get('name')?.errors?.required"
+          >Name is required.</small
+        >
+      </div>
+    </div>
+
+    <div>
+      <label for="companyName">Company Name:</label>
+      <input
+        id="companyName"
+        formControlName="companyName"
+        type="text"
+        autocomplete="off"
+      />
+      <div
+        *ngIf="
+          empForm.get('companyName')?.invalid &&
+          empForm.get('companyName')?.touched
+        "
+      >
+        <small *ngIf="empForm.get('companyName')?.errors?.required"
+          >Company Name is required.</small
+        >
+      </div>
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        formControlName="email"
+        type="email"
+        autocomplete="off"
+      />
+      <div
+        *ngIf="empForm.get('email')?.invalid && empForm.get('email')?.touched"
+      >
+        <small *ngIf="empForm.get('email')?.errors?.required"
+          >Email is required.</small
+        >
+        <small *ngIf="empForm.get('email')?.errors?.email"
+          >Enter a valid email.</small
+        >
+      </div>
+    </div>
+
+    <div>
+      <label for="phone">Contact Number:</label>
+      <input
+        id="phone"
+        formControlName="phone"
+        type="text"
+        autocomplete="off"
+        placeholder="+91XXXXXXXXXX"
+      />
+      <div
+        *ngIf="empForm.get('phone')?.invalid && empForm.get('phone')?.touched"
+      >
+        <small *ngIf="empForm.get('phone')?.errors?.required"
+          >Contact is required.</small
+        >
+        <small *ngIf="empForm.get('phone')?.errors?.pattern"
+          >Enter a valid Phone Number.</small
+        >
+      </div>
+    </div>
+
+    <div>
+      <label for="role">Designation:</label>
+      <select id="role" formControlName="role">
+        <option value="" disabled>Select an option</option>
+        <option *ngFor="let option of designations" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+      <div *ngIf="empForm.get('role')?.invalid && empForm.get('role')?.touched">
+        <small *ngIf="empForm.get('role')?.errors?.required"
+          >Selection is required.</small
+        >
+      </div>
+    </div>
+
+    <div>
+      <label for="avtr">Choose Avatar:</label>
+      <input
+        id="avtr"
+        type="file"
+        (change)="onFileChange($event)"
+        accept="image/*"
+      />
+      <div *ngIf="empForm.get('avtr')?.invalid && empForm.get('avtr')?.touched">
+        <small *ngIf="empForm.get('avtr')?.errors?.required"
+          >Avatar is required.</small
+        >
+      </div>
+    </div>
+    <button type="submit" [disabled]="empForm.invalid">
+      {{ !isEditForm ? "Add" : "Update" }} Employee
+    </button>
+  </form>
+</div>
